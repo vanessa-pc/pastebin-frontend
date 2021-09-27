@@ -17,6 +17,7 @@ export function PastebinForm({
     try {
       setPaste([...paste, text]);
       const requestBody = {content: paste.pop()};
+      console.log(paste)
       console.log(requestBody)
       const response = async () => {
         console.log(apiBaseURL);
