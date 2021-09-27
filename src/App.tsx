@@ -1,7 +1,15 @@
-import { greet } from "./utils/greet";
+import { useState } from "react";
+import { PastebinForm } from "./components/PastebinForm";
+
 
 function App(): JSX.Element {
-  return <h1>{greet("World")}</h1>;
+
+  const [paste, setPaste] = useState<Array<string>>([]);
+  return (
+    <>
+    <PastebinForm paste={paste} setPaste={setPaste}/>
+    </>
+  );
 }
 
 export default App;
