@@ -15,7 +15,6 @@ export function PastebinForm({
   const onFormSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      setPaste([...paste, text]);
       const requestBody = {content: paste.pop()};
       console.log(paste)
       console.log(requestBody)
@@ -35,7 +34,7 @@ export function PastebinForm({
   };
 
   return (
-    <form className="pastebin-form" onSubmit={onFormSubmit}>
+    <form className="pastebin-form" onClick={() => setPaste([...paste, text])} onSubmit={onFormSubmit}>
       <input
         type="text"
         value={text}
