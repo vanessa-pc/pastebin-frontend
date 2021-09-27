@@ -16,12 +16,12 @@ export function PastebinForm({
     event.preventDefault();
     try {
       setPaste([...paste, text]);
-      const content = paste[paste.length-1];
+      const requestBody = {content: paste[paste.length-1]};
       const response = async () => {
         await fetch(`${apiBaseURL}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(content),
+          body: JSON.stringify(requestBody),
         });
       };
       response();
