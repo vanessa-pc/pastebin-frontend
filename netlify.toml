@@ -1,0 +1,7 @@
+[build]
+  command = "yarn build"
+  publish = "build"
+
+[context.production.environment]
+  REACT_APP_API_BASE = "https://morning-tundra-49976.herokuapp.com/"
+
