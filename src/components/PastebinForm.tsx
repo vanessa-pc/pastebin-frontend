@@ -17,11 +17,14 @@ export function PastebinForm({
     try {
       setPaste([...paste, text]);
       const content = paste[-1];
-      const response = await fetch(apiBaseURL + "", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(content),
-      });
+      const response = async () => {
+        await fetch(apiBaseURL + "", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(content),
+        });
+      };
+      response();
       // window.location ="/";
     } catch (error) {
       console.error(error.message);
