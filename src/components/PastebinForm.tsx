@@ -32,9 +32,13 @@ export function PastebinForm({
       console.error(error);
     }
   };
+  const handleClick = () => {
+    setPaste([...paste, text]);
+    setText("");
+  }
 
   return (
-    <form className="pastebin-form" onClick={() => setPaste([...paste, text])} onSubmit={onFormSubmit}>
+    <form className="pastebin-form"  onSubmit={onFormSubmit}>
       <input
         type="text"
         value={text}
@@ -42,7 +46,7 @@ export function PastebinForm({
         placeholder="Paste your text here."
         onChange={(e) => setText(e.target.value)}
       />
-      <button className="submit-form-btn" onClick={() => setText("")}>
+      <button className="submit-form-btn" onClick={() => handleClick}>
         Save Paste
       </button>
     </form>
