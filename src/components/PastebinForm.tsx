@@ -18,6 +18,7 @@ export function PastebinForm({
       setPaste([...paste, text]);
       const requestBody = {content: paste[paste.length-1]};
       const response = async () => {
+        console.log(apiBaseURL);
         await fetch(`${apiBaseURL}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
