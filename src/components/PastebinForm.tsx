@@ -16,7 +16,7 @@ export function PastebinForm({
     event.preventDefault();
     try {
       setPaste([...paste, text]);
-      const requestBody = {content: paste[paste.length-1]};
+      const requestBody = {content: paste.pop()};
       console.log(requestBody)
       const response = async () => {
         console.log(apiBaseURL);
