@@ -17,9 +17,10 @@ export function PastebinForm({
     try {
       setPaste([...paste, text]);
       const requestBody = {content: paste[paste.length-1]};
+      console.log(requestBody)
       const response = async () => {
         console.log(apiBaseURL);
-        await fetch("https://morning-tundra-49976.herokuapp.com/", {
+        await fetch(`${apiBaseURL}`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(requestBody),
